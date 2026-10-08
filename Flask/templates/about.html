@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Meeting Cost Meter</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&display=swap">
+<style>
+  :root {
+    --bg: #f3f5f8; --panel: #ffffff; --ink: #162033; --muted: #607086; --line: #dde3ea;
+    --brand: #1f3a8a; --run: #0f766e; --soft: #eef2fb;
+    --shadow: 0 1px 2px rgba(22,32,51,.06), 0 4px 16px rgba(22,32,51,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1623; --panel: #182235; --ink: #e8edf5; --muted: #98a6ba; --line: #2a3850;
+            --brand: #8aa4ff; --run: #4fd1c5; --soft: #1f2c44; --shadow: none; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6;
+         font-family: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { background: var(--panel); border-bottom: 1px solid var(--line); }
+  .bar { max-width: 1040px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .bar strong { font-size: 1.15rem; font-weight: 800; letter-spacing: -.01em; }
+  nav { display: flex; gap: 6px; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 500; padding: 6px 12px; border-radius: 8px; }
+  nav a:hover { background: var(--soft); color: var(--ink); }
+  nav a[aria-current="page"] { background: var(--soft); color: var(--brand); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+  main { max-width: 760px; margin: 0 auto; padding: 36px 20px 56px; }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; margin: 0 0 12px; }
+  .lead { font-size: 1.15rem; color: var(--muted); margin: 0 0 32px; max-width: 60ch; }
+  section { margin-bottom: 28px; }
+  h2 { font-size: 1.2rem; font-weight: 600; margin: 0 0 10px; }
+  p { margin: 0 0 12px; max-width: 68ch; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 22px 24px; }
+  .formula { background: var(--soft); border-radius: 8px; padding: 14px 16px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-x: auto; }
+  .example { color: var(--muted); font-size: .95rem; margin: 10px 0 0; }
+  ul { margin: 0; padding-left: 20px; }
+  li { margin-bottom: 8px; max-width: 68ch; }
+  details { border-top: 1px solid var(--line); padding: 12px 0; }
+  details:last-child { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; font-weight: 600; }
+  summary:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  details p { margin: 8px 0 0; color: var(--muted); }
+  .cta { display: inline-block; margin-top: 8px; background: var(--run); color: #fff; text-decoration: none;
+         font-weight: 600; padding: 12px 20px; border-radius: 8px; }
+  .cta:hover { filter: brightness(1.08); }
+  @media (prefers-color-scheme: dark) { .cta { color: #08151f; } }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 20px 32px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <strong>Meeting Cost Meter</strong>
+    <nav aria-label="Main">
+      <a href="/">Meter</a>
+      <a href="/about" aria-current="page">About</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Every meeting has a price. Now you can see it.</h1>
+  <p class="lead">Meeting Cost Meter turns the time your team spends together into a live running total, so you can decide whether a meeting is worth its cost while it is still happening.</p>
+
+  <section class="card">
+    <h2>How the cost is calculated</h2>
+    <p>The meter multiplies the number of attendees by the average rate per person, then by the time that has passed.</p>
+    <div class="formula">Cost = attendees × rate per minute × minutes elapsed</div>
+    <p class="example">Example: 6 people at 40 per hour (0.67 per minute) for 30 minutes costs 6 × 0.67 × 30 = 120.</p>
+  </section>
+
+  <section>
+    <h2>What you can do with it</h2>
+    <ul>
+      <li>Start, pause, resume and reset the clock as the meeting runs.</li>
+      <li>Enter the average rate per hour or per minute. Changing one updates the other.</li>
+      <li>Change the number of attendees or the rate mid-meeting and see the total adjust at once.</li>
+      <li>Switch between US dollar, Pakistani rupee, euro, British pound, Indian rupee and UAE dirham.</li>
+      <li>Copy a one-line summary to paste into a report, a chat or the meeting notes.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Who it is for</h2>
+    <p>Team leads who want shorter standups, organizers deciding whether a call should be an email, facilitators who need a fair reason to wrap up, and freelancers who want to show clients the cost of extra calls.</p>
+  </section>
+
+  <section>
+    <h2>Good to know</h2>
+    <ul>
+      <li>The meter uses one average rate for everyone, so it gives an estimate, not an exact payroll figure.</li>
+      <li>It measures time cost only. It does not include the cost of interrupted work or preparation.</li>
+      <li>Everything runs in your browser. Nothing you enter is saved or sent to a server.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Questions</h2>
+    <details>
+      <summary>What rate should I enter?</summary>
+      <p>Use the average hourly cost of the people in the room. If you do not know salaries, a rough figure for the typical role works. Add overhead if you want the full cost of employment.</p>
+    </details>
+    <details>
+      <summary>Does the timer keep running if I close the tab?</summary>
+      <p>No. The timer lives in the open page, so closing or refreshing it resets the meeting. Copy the summary before you leave.</p>
+    </details>
+    <details>
+      <summary>Can I use it for one-to-one calls?</summary>
+      <p>Yes. Set attendees to 2 and enter the average rate of both people.</p>
+    </details>
+  </section>
+
+  <a class="cta" href="/">Open the meter</a>
+</main>
+
+<footer>Meeting Cost Meter. Built with Flask.</footer>
+</body>
+</html>
